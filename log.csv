@@ -1,0 +1,5 @@
+command,constant,opcode
+LOAD,288,20
+READ,359,251
+WRITE,358,152
+SGN,209,107
