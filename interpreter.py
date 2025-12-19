@@ -1,12 +1,11 @@
 import struct
-import yaml
 import sys
 import csv
 
 MEMORY_SIZE = 1024
 
 class VirtualMachine:
-    def init(self):
+    def __init__(self):
         self.memory = [0] * MEMORY_SIZE
         self.accumulator = 0
 
@@ -68,7 +67,7 @@ class VirtualMachine:
                     writer.writerow([numbers[i], result_data['memory'][i]])
             # yaml.dump(result_data, result)
 
-if name == "main":
+if __name__ == "__main__":
     if len(sys.argv) != 5:
         print("Usage: python3 interpreter.py <binary_path> <result_path> <mem_start> <mem_end>")
         sys.exit(1)

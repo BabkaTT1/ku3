@@ -70,7 +70,7 @@ def assemble(input_path, output_path, test_mode):
                 if test_mode == 1:
                     print(f"command: {cmd}, constant: {addr} - {hex(addr)}, opcode: {opcode} - {hex(opcode)}")
                 
-if name == "main":
+if __name__ == "__main__":
     if len(sys.argv) != 4:
         print("Usage: python3 assembler.py <input_path> <output_path> test_mode")
         sys.exit(1)
