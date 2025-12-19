@@ -30,7 +30,7 @@ def assemble(input_path, output_path, test_mode):
                 opcode = COMMANDS[cmd]
                 const = int(parts[1])
                 binary.write(struct.pack("B", opcode))
-                binary.write(struct.pack("<I", const))
+                binary.write(struct.pack("<i", const))
                 
                 # Записываем в CSV
                 csv_writer.writerow([cmd, const, opcode])
@@ -42,7 +42,7 @@ def assemble(input_path, output_path, test_mode):
                 opcode = COMMANDS[cmd]
                 addr = int(parts[1])
                 binary.write(struct.pack("B", opcode))
-                binary.write(struct.pack("<I", addr))
+                binary.write(struct.pack("<i", addr))
                 
                 csv_writer.writerow([cmd, addr, opcode])
                 # Выводим в консоль только при test_mode=1
@@ -53,7 +53,7 @@ def assemble(input_path, output_path, test_mode):
                 opcode = COMMANDS[cmd]
                 addr = int(parts[1])
                 binary.write(struct.pack("B", opcode))
-                binary.write(struct.pack("<I", addr))
+                binary.write(struct.pack("<i", addr))
                 
                 csv_writer.writerow([cmd, addr, opcode])
                 # Выводим в консоль только при test_mode=1
@@ -64,13 +64,13 @@ def assemble(input_path, output_path, test_mode):
                 opcode = COMMANDS[cmd]
                 addr = int(parts[1])
                 binary.write(struct.pack("B", opcode))
-                binary.write(struct.pack("<I", addr))
+                binary.write(struct.pack("<i", addr))
                 csv_writer.writerow([cmd, addr, opcode])
                 # Выводим в консоль только при test_mode=1
                 if test_mode == 1:
                     print(f"command: {cmd}, constant: {addr} - {hex(addr)}, opcode: {opcode} - {hex(opcode)}")
                 
-if __name__ == "__main__":
+if name == "main":
     if len(sys.argv) != 4:
         print("Usage: python3 assembler.py <input_path> <output_path> test_mode")
         sys.exit(1)
