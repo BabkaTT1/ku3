@@ -46,12 +46,14 @@ class VirtualMachine:
                     const = struct.unpack("<i", binary.read(4))[0]  # Знаковое значение
                     self.load(const)
                 elif opcode == 0xFB:  # READ
-                    addr = struct.unpack("<i", binary.read(4))[0]
+                    addr = struct.unpack("<I", binary.read(4))[0]
                     self.read(addr)
                 elif opcode == 0x98:  # WRITE
-                    addr = struct.unpack("<i", binary.read(4))[0]
+                    addr = struct.unpack("<I", binary.read(4))[0]
                     self.write(addr)
-                
+                elif opcode == 0x6B:  # sgn
+                    addr = struct.unpack("<I", binary.read(4))[0]
+                    self.sgn(addr)
             
             start, end = mem_range
             numbers=list(range(start,end))
